@@ -41,10 +41,7 @@ def create_project(project_name: str,
 
     with open('main.py', mode='w', encoding=encoding) as f:
         f.write('# Your code goes here\n')
-
-    with open('requirements.txt', mode='w', encoding=encoding) as f:
-        pass
-
+        
     # Initialize git repository
     if create_git_repo:
         subprocess.run(['git', 'init'])
@@ -55,7 +52,8 @@ def create_project(project_name: str,
         subprocess.run(['python3', '-m', 'venv', 'env'])
         print('Virtual environment created.')
 
-
+    #pip install dependencies
+    #  subprocess.run(['pip', 'install', '-r', 'requirements.txt'])
 
 
 if __name__ == "__main__":
