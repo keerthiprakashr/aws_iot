@@ -52,5 +52,15 @@ def create_project(project_name: str,
 
     # Create virtual environment
     if create_virtual_env:
-        subprocess.run(['python', '-m', 'venv', 'env'])
+        subprocess.run(['python3', '-m', 'venv', 'env'])
         print('Virtual environment created.')
+
+
+
+
+if __name__ == "__main__":
+    project_name = input("Enter project name: ")
+    create_git_repo = input("Create git repository? (y/n): ").lower() == 'y'
+    create_virtual_env = input("Create virtual environment? (y/n): ").lower() == 'y'
+    create_project(project_name, create_git_repo=='y', create_virtual_env='y')
+    
