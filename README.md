@@ -3,7 +3,7 @@
 #### Note
 This code has been tested on Ubuntu 22.10. Please note that the instructions provided in this README may differ slightly if you are using a different operating system such as Windows or macOS.
 
-## Steps to run this app
+## Prerequisites
 
 First you need to configure access to AWS. The easiest method is to login using AWS CLI on the server where this code has to run. 
 
@@ -13,16 +13,10 @@ To configure your AWS access keys, follow these steps:
 2. Run `aws configure` and follow the prompts to enter your access keys.
 3. Run `aws configure list` to verify that your keys were configured correctly.
 
-### Authenticate with AWS CLI to provide access to AWS IoT Core services
+Authenticate with AWS CLI to provide access to AWS IoT Core services
 
 Refer to [this documentation](https://docs.aws.amazon.com/signin/latest/userguide/command-line-sign-in.html) for instructions on how to authenticate with AWS CLI.
 
-
-### Run this command to see the profile:
-
-```sh
-aws configure list
-```
 
 ## Run this app
 
@@ -39,7 +33,7 @@ To run this app, please follow these steps:
 pip install -r requirements.txt
 ```
 
-### To start the app
+### Steps to start the app
 ```sh
 flask run
 ```
