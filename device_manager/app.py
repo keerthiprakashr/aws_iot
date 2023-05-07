@@ -3,20 +3,21 @@ Author: Keerthi Prakash R
 Date:7th May 2023
 Description: IOT Device Management APIs
 """
-from flask import Flask, jsonify, Response
+from flask import Flask, jsonify, Response, request
 from awsiotcore_functions.awsiotcore_functions import ThingManager
 
 app = Flask(__name__)
 
 
-@app.route("/registerdevice")
+@app.route("/registerdevice", methods=['GET'])
 def register_device() -> Response:
     """
     Registers a new device.
     """
     try:
+        name = request.args.get("thingname", "gateway_1")
         thing_manager = ThingManager()
-        thing_obj = thing_manager.create_thing()
+        thing_obj = thing_manager.create_thing(name)
         response_data = jsonify(thing_obj.to_dict())
         response_data.headers.add('Content-Type', 'application/json')
         return response_data
@@ -29,14 +30,15 @@ def register_device() -> Response:
         return response_data
 
 
-@app.route("/deletedevice")
+@app.route("/deletedevice",  methods=['GET'])
 def delete_device() -> Response:
     """
     Delete device from iot core
     """
     try:
+        name = request.args.get("thingname", "gateway_1")
         thing_manager = ThingManager()
-        result = thing_manager.delete_thing("gateway_1")
+        result = thing_manager.delete_thing(name)
         response_data = jsonify(result)
         response_data.headers.add('Content-Type', 'application/json')
         return response_data

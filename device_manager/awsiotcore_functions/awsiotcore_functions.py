@@ -17,7 +17,7 @@ class ThingManager:
     def __init__(self) -> None:
         self.client = boto3.client('iot')
 
-    def create_thing(self) -> ThingProperties:
+    def create_thing(self, name: str) -> ThingProperties:
         """
         Creates a new thing in AWS IoT Core.
         In a real project, you may want to keep some information in a database.
@@ -27,7 +27,7 @@ class ThingManager:
         newthing_obj = ThingProperties()
 
         # Add a new thing
-        newthing_obj.thing_name = 'gateway_1'
+        newthing_obj.thing_name = name
         response = self.client.create_thing(thingName=newthing_obj.thing_name)
 
         # Wait for the thing to be created
