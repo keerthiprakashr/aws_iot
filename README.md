@@ -1,5 +1,8 @@
 # AWS IOT Device management
 
+#### Note
+This code has been tested on Ubuntu 22.10. Please note that the instructions provided in this README may differ slightly if you are using a different operating system such as Windows or macOS.
+
 ## Steps to run this app
 
 First you need to configure access to AWS. The easiest method is to login using AWS CLI on the server where this code has to run. 
@@ -26,7 +29,7 @@ aws configure list
 To run this app, please follow these steps:
 
 1. Clone the code to your server.
-2. Open a terminal and navigate to the `device_manager` folder. (Tested on Ubuntu)
+2. Navigate to the `device_manager` folder.
 3. Activate the virtual environment. 
 ```sh
 . .venv/bin/activate
