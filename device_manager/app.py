@@ -1,7 +1,12 @@
 """
-Author: Keerthi Prakash R
+Device Management APIs for AWS IOT.
+
+Author: Keerthi Prakash R.
+
 Date:7th May 2023
+
 Description: IOT Device Management APIs
+
 """
 from flask import Flask, jsonify, Response, request
 from awsiotcore_functions.awsiotcore_functions import ThingManager
@@ -11,9 +16,7 @@ app = Flask(__name__)
 
 @app.route("/registerdevice", methods=['GET'])
 def register_device() -> Response:
-    """
-    Registers a new device.
-    """
+    """Register a new device."""
     try:
         name = request.args.get("thingname", "gateway_1")
         thing_manager = ThingManager()
@@ -32,9 +35,7 @@ def register_device() -> Response:
 
 @app.route("/deletedevice",  methods=['GET'])
 def delete_device() -> Response:
-    """
-    Delete device from iot core
-    """
+    """Delete device from iot core."""
     try:
         name = request.args.get("thingname", "gateway_1")
         thing_manager = ThingManager()
