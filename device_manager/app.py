@@ -9,7 +9,8 @@ Description: IOT Device Management APIs
 
 """
 from flask import Flask, jsonify, Response, request
-from awsiotcore_functions.awsiotcore_functions import ThingManager
+
+from awsiotcore_services.thing_manager import ThingManager
 
 app = Flask(__name__)
 
