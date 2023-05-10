@@ -8,6 +8,8 @@ Date:7th May 2023
 Description: IOT Device Management APIs
 
 """
+# TODO: Add logging
+
 from flask import Flask, jsonify, Response, request
 
 from awsiotcore_services.thing_manager import ThingManager
@@ -19,6 +21,7 @@ app = Flask(__name__)
 def register_device() -> Response:
     """Register a new device."""
     try:
+        # TODO: Input validation
         name = request.args.get("thingname", "gateway_1")
         thing_manager = ThingManager()
         thing_obj = thing_manager.create_thing(name)
@@ -38,6 +41,7 @@ def register_device() -> Response:
 def delete_device() -> Response:
     """Delete device from iot core."""
     try:
+        # TODO: Input validation
         name = request.args.get("thingname", "gateway_1")
         thing_manager = ThingManager()
         result = thing_manager.delete_thing(name)

@@ -3,6 +3,7 @@ Author: Keerthhi
 Date: 7th May 2023
 Description: sample python code for working with aws iot core
 """
+#  TODO: add logging
 import time
 from typing import Any
 import boto3
